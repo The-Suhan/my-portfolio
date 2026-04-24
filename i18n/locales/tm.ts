@@ -1,7 +1,7 @@
 export default defineI18nLocale(() => ({
   resume: {
     whyHireMe: {
-      title: "Näme üçin meni işe almaly?",
+      title: "Näme üçin men ?",
     },
     tabs: {
       experience: "Tejribe",
@@ -96,7 +96,7 @@ export default defineI18nLocale(() => ({
     hero: {
       description:
         "Men sanly tejribeleri döretmekde ökde we dürli programmirleme dillerini ulanmagy başarýaryn.",
-      role: "Programma üpjünçilik işläp düzüji",
+      role: "Programist",
       greeting: "Salam men",
       roles: {
         name: "Suhan Begenjov",
