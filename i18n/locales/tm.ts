@@ -101,7 +101,7 @@ export default defineI18nLocale(() => ({
       roles: {
         name: "Suhan Begenjov",
         uiux: "UI UX Dizaýner",
-        frontend: "Full Stack Developer",
+        frontend: "Full Stack Web Developer",
       },
     },
     stats: {

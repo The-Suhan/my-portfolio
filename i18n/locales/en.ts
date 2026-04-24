@@ -98,12 +98,12 @@ export default defineI18nLocale(() => ({
     hero: {
       description:
         "I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.",
-      role: "Software Developer",
+      role: "Web Developer",
       greeting: "Hello I'm",
       roles: {
         name: "Suhan Begenjov",
         uiux: "UI UX Designer",
-        frontend: "Full Stack Developer",
+        frontend: "Full Stack Web Developer",
       },
     },
     stats: {
