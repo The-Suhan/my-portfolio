@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #f1f1f1;
+  background: #0f0f0f;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.content-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.content-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.scroll-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.scrollbar-track {
+  width: 4px;
+  background: #2a2a33;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.scrollbar-thumb {
+  position: absolute;
+  left: 0;
+  width: 4px;
+  background: #00ff8c;
+  border-radius: 999px;
+  cursor: grab;
+  transition: width 0.15s ease, left 0.15s ease;
+}
+
+.scrollbar-thumb:hover,
+.scrollbar-thumb:active {
+  width: 6px;
+  left: -1px;
+  cursor: grabbing;
+}
+
+.resume-card {
+  background: #2a2a33;
+  border-radius: 8px;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: background 0.2s ease, border-left-color 0.2s ease;
+  border-left: 3px solid transparent;
+  min-height: 150px;
+}
+
+.resume-card:hover {
+  background: #32323e;
+  border-left-color: #00ff8c;
+}
+
+.card-period {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: #00ff8c;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  line-height: 1.3;
+}
+
+.card-place {
+  list-style: disc;
+  padding-left: 1rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.card-place li {
+  color: #6b7280;
+}
