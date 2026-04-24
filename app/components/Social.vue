@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-5">
-        <a href="/cv.pdf" download
+        <a href="/public/cv/cv.pdf" download
             class="download-btn inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#00ff99] text-[#00ff99] font-mono text-xs tracking-widest uppercase w-fit hover:bg-[#00ff99] hover:text-[#1a1a2e] transition-all duration-300">
             {{ $t('home.social.downloadCV') }}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
