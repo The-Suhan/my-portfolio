@@ -78,6 +78,12 @@ export default defineI18nLocale(() => ({
   work: {
     liveProject: "Live project",
     githubRepo: "Github repository",
+    popup: {
+      title: "Private Access",
+      desc: "This project is private. Enter the 4-digit code to continue.",
+      error: "Wrong code. Try again.",
+      confirm: "Confirm",
+    },
     projects: {
       fullstack: {
         id: "fullstack",
@@ -90,6 +96,36 @@ export default defineI18nLocale(() => ({
         images: [
           "/projects/owazym.jpg",
         ],
+      },
+      heartAnimation: {
+        id: "heartAnimation",
+        number: "02",
+        title: "Heart Animation",
+        desc: "A tender front-end piece I crafted for my queen — a gentle, looping heart animation built with pure CSS and canvas magic. Every pulse was written with her in mind.",
+        techs: ["Nuxt.js", "CSS", "Canvas API"],
+        liveUrl: "https://only-for-my-princess.vercel.app/",
+        githubUrl: "https://github.com/The-Suhan/only-for-my-princess",
+        images: ["/projects/project1.png"],
+      },
+      myEyesOnHer: {
+        id: "myEyesOnHer",
+        number: "03",
+        title: "Her In My Eyes",
+        desc: "A visual love letter — this project captures exactly how she looks through my eyes. Colors, light, and motion all shaped by the way I see her.",
+        techs: ["Nuxt.js"],
+        liveUrl: "https://for-my-princess-tau.vercel.app/",
+        githubUrl: "https://github.com/The-Suhan/for-my-princess",
+        images: ["/projects/project2.png"],
+      },
+      questionForPrincess: {
+        id: "questionForPrincess",
+        number: "04",
+        title: "A Question for My Princess",
+        desc: "I had a question prepared just for my princess — one I built into an interactive experience she'd never forget.",
+        techs: ["Nuxt.js"],
+        liveUrl: "https://questionformylove.vercel.app/",
+        githubUrl: "https://github.com/The-Suhan/Question-template-for-my-wife-",
+        images: ["/projects/project3.png"],
       },
     },
   },

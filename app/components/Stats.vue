@@ -10,7 +10,7 @@ interface StatItem {
 
 const stats = reactive<StatItem[]>([
     { key: 'experience', target: 1, current: 0 },
-    { key: 'projects', target: 1, current: 0 },
+    { key: 'projects', target: 4, current: 0 },
     { key: 'technologies', target: 14, current: 0 },
     { key: 'commits', target: 100, current: 0 },
 ])
