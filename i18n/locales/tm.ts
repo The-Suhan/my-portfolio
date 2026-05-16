@@ -108,7 +108,7 @@ export default defineI18nLocale(() => ({
       myEyesOnHer: {
         id: "myEyesOnHer",
         number: "03",
-        title: "Ol Meniň Gözümde",
+        title: "O gyz Meniň Gözümde",
         desc: "Bu taslama ony meniň gözüm bilen edil nähili görýändigimi beýan edýär. Reňkler, ýagtylyk we hereket hemmesi onuň mende döredýän duýgularyndan ylham aldy.",
         techs: ["Nuxt.js"],
         liveUrl: "https://for-my-princess-tau.vercel.app/",
