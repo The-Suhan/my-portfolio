@@ -1,34 +1,34 @@
-<script setup lang="ts">
-const { locale, locales, setLocale } = useI18n()
+    <script setup lang="ts">
+    const { locale, locales, setLocale } = useI18n()
 
-const props = defineProps<{
-    isOpen: boolean
-}>()
+    const props = defineProps<{
+        isOpen: boolean
+    }>()
 
-const emit = defineEmits<{
-    close: []
-}>()
+    const emit = defineEmits<{
+        close: []
+    }>()
 
-const languages = [
-    { code: "en", label: "EN", flag: "/flags/usa.png" },
-    { code: "ru", label: "RU", flag: "/flags/ru.png" },
-    { code: "tm", label: "TM", flag: "/flags/tm.png" },
-]
+    const languages = [
+        { code: "en", label: "EN", flag: "/flags/usa.png" },
+        { code: "ru", label: "RU", flag: "/flags/ru.png" },
+        { code: "tm", label: "TM", flag: "/flags/tm.png" },
+    ]
 
-const navLinks = [
-    { label: "layout.nav.home", to: "/" },
-    { label: "layout.nav.resume", to: "/resume" },
-    { label: "layout.nav.work", to: "/work" },
-    { label: "layout.nav.contact", to: "/contact" },
-]
+    const navLinks = [
+        { label: "layout.nav.home", to: "/" },
+        { label: "layout.nav.resume", to: "/resume" },
+        { label: "layout.nav.work", to: "/work" },
+        { label: "layout.nav.contact", to: "/contact" },
+    ]
 
-const selectLang = async (code: string) => {
-    await setLocale(code as any)
-}
+    const selectLang = async (code: string) => {
+        await setLocale(code as any)
+    }
 
-const handleLinkClick = () => {
-    emit("close")
-}
+    const handleLinkClick = () => {
+        emit("close")
+    }
 </script>
 
 <template>
