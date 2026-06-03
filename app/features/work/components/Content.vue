@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Content.vue
 defineProps<{
   number: string
   title: string

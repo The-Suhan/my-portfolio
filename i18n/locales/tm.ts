@@ -95,7 +95,35 @@ export default defineI18nLocale(() => ({
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
         images: ["/projects/owazym.jpg"],
       },
+      HazarOil: {
+        id: "Hazar Oil",
+        number: "02",
+        title: "Hazar Oil",
+        desc: "Hazar Oil — nebit kompaniýasy üçin döredilen korporatiw tanyşdyryş saýty bolup, «Biz hakda» we «Hyzmatdaşlarymyz» ýaly bölümleri öz içine alýar. Saýt kompaniýanyň gymmatlyklaryny beýan etmek we işewür gatnaşyklary ynam hem görsel aýdyňlyk esasynda görkezmek üçin arassa we professional görnüşde işlenip düzüldi.",
+        techs: ["Nuxt.js"],
+        liveUrl: "https://hazaroil.uz/",
+        githubUrl: "https://github.com/The-Suhan/Hazar-Oil",
+        images: ["/projects/hazar-oil.png"],
+      },
+      Velora: {
+        id: "Velora Cafe",
+        number: "03",
+        title: "Velora Online Cafe",
+        desc: "Velora Cafe — müşderi we admin taraplaryny öz içine alýan doly restoran web goşundysydyr. Ulanyjylar iýmit we içgileri kategoriýa boýunça görup bilerler, sargyt edip bilerler, profilini dolandyryp bilerler we OTP arkaly howpsuz parol dikeltme ulgamy bilen hasaba durup ýa-da girip bilerler. Admin paneli menýu we sargytlar üstünde doly gözegçiligi üpjün edýär.",
+        techs: ["Laravel", "Nuxt.js", "PostreSQL"],
+        liveUrl: "",
+        githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
+        images: ["/projects/velora.png"],
+      },
     },
+  },
+  
+  error: {
+    notFound: "Sahypa tapylmady",
+    unexpected: "Bir zat ters gitdi",
+    notFoundDesc: "Gözleýän sahypaňyz ýok ýa-da başga ýere geçirildi.",
+    unexpectedDesc: "Garaşylmadyk ýalňyşlyk ýüze çykdy.",
+    goHome: "Baş sahypa",
   },
 
   home: {

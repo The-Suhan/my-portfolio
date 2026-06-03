@@ -10,9 +10,9 @@ interface StatItem {
 
 const stats = reactive<StatItem[]>([
     { key: 'experience', target: 1, current: 0 },
-    { key: 'projects', target: 4, current: 0 },
+    { key: 'projects', target: 3, current: 0 },
     { key: 'technologies', target: 14, current: 0 },
-    { key: 'commits', target: 100, current: 0 },
+    { key: 'commits', target: 200, current: 0 },
 ])
 
 let animationFrame: number | null = null

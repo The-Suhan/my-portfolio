@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Social.vue
 const props = defineProps<{
     liveUrl: string
     githubUrl: string

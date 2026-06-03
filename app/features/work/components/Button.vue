@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Button.vue
 defineProps<{
     liveUrl: string
     githubUrl: string

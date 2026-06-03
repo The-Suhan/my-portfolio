@@ -95,7 +95,35 @@ export default defineI18nLocale(() => ({
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
         images: ["/projects/owazym.jpg"],
       },
+      HazarOil: {
+        id: "Hazar Oil",
+        number: "02",
+        title: "Hazar Oil",
+        desc: "Hazar Oil — корпоративный презентационный сайт нефтяной компании с разделами «О нас» и «Наши партнёры». Сайт выполнен в чистом и профессиональном стиле, отражает ценности компании и демонстрирует деловые связи с акцентом на доверие и визуальную привлекательность.",
+        techs: ["Nuxt.js"],
+        liveUrl: "https://hazaroil.uz/",
+        githubUrl: "https://github.com/The-Suhan/Hazar-Oil",
+        images: ["/projects/hazar-oil.png"],
+      },
+      Velora: {
+        id: "Velora Cafe",
+        number: "03",
+        title: "Velora Online Cafe",
+        desc: "Velora Cafe — полноценное веб-приложение для ресторана с клиентской и административной частями. Пользователи могут просматривать блюда и напитки по категориям, оформлять заказы, управлять профилем, а также регистрироваться и входить в систему с защищённым восстановлением пароля через OTP. Админ-панель обеспечивает полный контроль над меню и заказами.",
+        techs: ["Laravel", "Nuxt.js", "PostreSQL"],
+        liveUrl: "",
+        githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
+        images: ["/projects/velora.png"],
+      },
     },
+  },
+
+  error: {
+    notFound: "Страница не найдена",
+    unexpected: "Что-то пошло не так",
+    notFoundDesc: "Страница, которую вы ищете, не существует или была перемещена.",
+    unexpectedDesc: "Произошла непредвиденная ошибка.",
+    goHome: "На главную",
   },
 
   home: {

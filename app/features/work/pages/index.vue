@@ -11,9 +11,13 @@ interface Project {
   githubUrl: string
   images: string[]
 }
+
 const projects = computed((): Project[] => {
-  const raw = tm('work.projects') as Record<string, Project>
-  return Object.values(raw)
+  const raw = tm('work.projects') as Record<string, any>
+  return Object.values(raw).map((p: any) => ({
+    ...p,
+    images: Array.isArray(p.images) ? p.images : Object.values(p.images ?? {}),
+  }))
 })
 
 const currentIndex = ref(0)
@@ -43,8 +47,8 @@ function navigate(dir: 'prev' | 'next') {
 
       <div class="work-grid">
 
-        <!-- LEFT: content + social -->
-        <div v-if="current" class="left-col">
+        <!-- LEFT: animasyonlu içerik -->
+        <div class="left-col">
           <transition :name="currentIndex > prevIndex ? 'content-up' : 'content-down'" mode="out-in">
             <div :key="current.id" class="left-inner">
               <FWorkContent :number="current.number" :title="current.title" :description="current.desc"
@@ -54,10 +58,9 @@ function navigate(dir: 'prev' | 'next') {
           </transition>
         </div>
 
-        <!-- RIGHT: photo slider + mobile nav wrapper -->
-        <div v-if="current" class="right-col">
+        <!-- RIGHT: photo — key yok, destroy/remount olmasın -->
+        <div class="right-col">
           <div class="photo-nav-wrapper">
-            <!-- Mobile-only nav arrows (left/right sides of photo) -->
             <button class="nav-arrow mobile-nav mobile-nav-prev" :class="{ disabled: isFirst }" :disabled="isFirst"
               aria-label="Previous project" @click="navigate('prev')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -66,7 +69,7 @@ function navigate(dir: 'prev' | 'next') {
               </svg>
             </button>
 
-            <!-- FWorkPhoto now emits 'navigate' for drag/swipe gestures -->
+
             <FWorkPhoto :images="current.images" :current-index="currentIndex" :prev-index="prevIndex"
               @navigate="navigate" />
 
@@ -81,7 +84,7 @@ function navigate(dir: 'prev' | 'next') {
         </div>
       </div>
 
-      <!-- Desktop nav arrows -->
+      <!-- Desktop nav -->
       <div class="nav-controls">
         <button class="nav-arrow" :class="{ disabled: isFirst }" :disabled="isFirst" aria-label="Previous project"
           @click="navigate('prev')">
@@ -104,6 +107,14 @@ function navigate(dir: 'prev' | 'next') {
 </template>
 
 <style scoped>
+.photo-placeholder {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 16 / 11;
+  border-radius: 10px;
+  background: #1a1a24;
+}
+
 .work-page {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -146,7 +157,6 @@ function navigate(dir: 'prev' | 'next') {
   justify-content: flex-end;
 }
 
-
 .photo-nav-wrapper {
   display: contents;
 }
@@ -185,6 +195,7 @@ function navigate(dir: 'prev' | 'next') {
   cursor: not-allowed;
 }
 
+/* Content transitions */
 .content-up-enter-from {
   transform: translateY(30px);
   opacity: 0;
@@ -215,6 +226,14 @@ function navigate(dir: 'prev' | 'next') {
 .content-down-leave-from {
   transform: translateY(0);
   opacity: 1;
+}
+
+/* Transition duration */
+.content-up-enter-active,
+.content-up-leave-active,
+.content-down-enter-active,
+.content-down-leave-active {
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 @media (max-width: 768px) {
