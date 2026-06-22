@@ -1,4 +1,7 @@
 export default defineI18nLocale(() => ({
+  projects: {
+    "title": "My Projects"
+  },
   resume: {
     whyHireMe: {
       title: "Why hire me?",
@@ -91,7 +94,7 @@ export default defineI18nLocale(() => ({
         title: "Owazym",
         desc: "Owazym is a full-stack music streaming platform inspired by services like Spotify. It provides a clean, responsive UI for discovering, playing, and managing music with smooth audio playback and playlist support. Built with modern web technologies, it focuses on performance, scalability, and a polished user experience.",
         techs: ["Node.js", "Prisma", "Vue.js", "PostreSQL"],
-        liveUrl: "",
+        liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
         images: [
           "/projects/owazym.jpg",
@@ -115,7 +118,7 @@ export default defineI18nLocale(() => ({
         title: "Velora Online Cafe",
         desc: "Velora Cafe is a full-stack restaurant web application with both customer-facing and admin sides. Customers can browse food and drink items by category, place orders, manage their profile, and register or log in with a secure OTP-based forgot password system. The admin panel provides full control over menu management and orders, offering a seamless experience for both staff and guests.",
         techs: ["Laravel", "Nuxt.js", "PostreSQL"],
-        liveUrl: "",
+        liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
         images: [
           "/projects/velora.png",
@@ -132,6 +135,8 @@ export default defineI18nLocale(() => ({
   },
 
   home: {
+    "title": "Home",
+    "description": "My home page",
     hero: {
       description:
         "I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.",

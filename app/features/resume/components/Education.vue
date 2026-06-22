@@ -1,125 +1,37 @@
-<script setup>
-//education.vue
-const items = {
-    bootcamp: {},
-    certified: {},
-    programming: {},
-}
-
-const gridRef = ref(null)
-const trackRef = ref(null)
-const thumbRef = ref(null)
-const thumbHeight = ref(40)
-const thumbTop = ref(0)
-
-let isDragging = false
-let dragStartY = 0
-let dragStartScrollTop = 0
-
-function updateThumb() {
-    const el = gridRef.value
-    if (!el) return
-    const track = trackRef.value
-    if (!track) return
-    const trackH = track.clientHeight
-    const ratio = el.clientHeight / el.scrollHeight
-    thumbHeight.value = Math.max(32, trackH * ratio)
-    const scrollRatio = el.scrollTop / (el.scrollHeight - el.clientHeight || 1)
-    thumbTop.value = scrollRatio * (trackH - thumbHeight.value)
-}
-
-function onThumbMousedown(e) {
-    e.preventDefault()
-    isDragging = true
-    dragStartY = e.clientY
-    dragStartScrollTop = gridRef.value.scrollTop
-    window.addEventListener('mousemove', onMouseMove)
-    window.addEventListener('mouseup', onMouseUp)
-}
-
-function onMouseMove(e) {
-    if (!isDragging) return
-    const el = gridRef.value
-    const track = trackRef.value
-    const delta = e.clientY - dragStartY
-    const scrollRatio = (el.scrollHeight - el.clientHeight) / (track.clientHeight - thumbHeight.value)
-    el.scrollTop = dragStartScrollTop + delta * scrollRatio
-}
-
-function onMouseUp() {
-    isDragging = false
-    window.removeEventListener('mousemove', onMouseMove)
-    window.removeEventListener('mouseup', onMouseUp)
-}
-
-function onTrackClick(e) {
-    if (e.target === thumbRef.value) return
-    const track = trackRef.value
-    const el = gridRef.value
-    const rect = track.getBoundingClientRect()
-    const clickY = e.clientY - rect.top
-    const ratio = clickY / track.clientHeight
-    el.scrollTop = ratio * (el.scrollHeight - el.clientHeight)
-}
-
-onMounted(() => {
-    gridRef.value?.addEventListener('scroll', updateThumb)
-    updateThumb()
-})
-
-onUnmounted(() => {
-    gridRef.value?.removeEventListener('scroll', updateThumb)
-    window.removeEventListener('mousemove', onMouseMove)
-    window.removeEventListener('mouseup', onMouseUp)
-})
+<!-- components/F/Resume/Education.vue -->
+<script setup lang="ts">
+const items = ['programming', 'certified', 'bootcamp'] as const
 </script>
 
-
 <template>
-    <div class="tab-content">
-        <div class="content-header">
-            <h3 class="content-title">{{ $t('resume.education.title') }}</h3>
-        </div>
-
-        <div class="scroll-wrapper">
-            <div class="items-grid" ref="gridRef">
-                <div v-for="(item, key) in items" :key="key" class="resume-card">
-                    <span class="card-period">{{ $t(`resume.education.items.${key}.period`) }}</span>
-                    <h4 class="card-title">{{ $t(`resume.education.items.${key}.title`) }}</h4>
-                    <ul class="card-place">
-                        <li>{{ $t(`resume.education.items.${key}.place`) }}</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="scrollbar-track" ref="trackRef" @click="onTrackClick">
-                <div class="scrollbar-thumb" ref="thumbRef"
-                    :style="{ height: thumbHeight + 'px', top: thumbTop + 'px' }" @mousedown="onThumbMousedown" />
-            </div>
-        </div>
+  <div class="tab-content">
+    <p class="pane-eyebrow">$ cat education.log</p>
+    <div class="log-list">
+      <div v-for="key in items" :key="key" class="log-item">
+        <span class="log-period">{{ $t(`resume.education.items.${key}.period`) }}</span>
+        <h4 class="log-title">{{ $t(`resume.education.items.${key}.title`) }}</h4>
+        <p class="log-place">{{ $t(`resume.education.items.${key}.place`) }}</p>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
-.items-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    max-height: 331px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    padding-right: 0.25rem;
+.log-list { display: flex; flex-direction: column; }
+.log-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-subtle);
 }
-
-.items-grid::-webkit-scrollbar {
-    display: none;
+.log-item:last-child { border-bottom: none; }
+.log-period {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--amber);
+  background: var(--amber-glow);
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-bottom: 10px;
 }
-
-@media (max-width: 640px) {
-    .items-grid {
-        grid-template-columns: 1fr;
-        max-height: 360px;
-    }
-}
+.log-title { font-size: 1.05rem; font-weight: 700; margin: 0 0 4px; }
+.log-place { font-size: 12.5px; color: var(--text-tertiary); margin: 0; }
 </style>

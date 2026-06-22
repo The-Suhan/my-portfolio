@@ -1,69 +1,32 @@
-<template>
-    <div class="tab-content">
-        <div class="content-header">
-            <h3 class="content-title">{{ $t('resume.about.title') }}</h3>
-        </div>
-
-        <div class="about-grid">
-            <div v-for="field in leftFields" :key="field" class="about-row">
-                <span class="field-label">{{ $t(`resume.about.fields.${field}`) }}</span>
-                <span class="field-value">{{ $t(`resume.about.values.${field}`) }}</span>
-            </div>
-
-            <div v-for="field in rightFields" :key="field" class="about-row">
-                <span class="field-label">{{ $t(`resume.about.fields.${field}`) }}</span>
-                <span class="field-value">
-                    {{
-                        field === 'email'
-                            ? $t(`resume.about.values.${field}`) + '@gmail.com'
-                            : $t(`resume.about.values.${field}`)
-                    }}
-                </span>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-const leftFields = ['name', 'experience', 'nationality', 'freelance']
-const rightFields = ['phone', 'email', 'languages']
+<!-- components/F/Resume/Aboutme.vue -->
+<script setup lang="ts">
+const fields = ['name', 'phone', 'experience', 'nationality', 'email', 'freelance', 'languages'] as const
 </script>
 
+<template>
+  <div class="tab-content">
+    <p class="pane-eyebrow">$ cat about.me</p>
+    <div class="about-grid">
+      <div v-for="field in fields" :key="field" class="about-row">
+        <span class="about-key">{{ $t(`resume.about.fields.${field}`) }}</span>
+        <span class="about-val" :class="{ accent: field === 'freelance' }">
+          {{ $t(`resume.about.values.${field}`) }}
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem 2rem;
-}
-
+.about-grid { display: flex; flex-direction: column; }
 .about-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
+  display: flex; justify-content: space-between; gap: 24px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
 }
-
-.field-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
-    color: #6b7280;
-    white-space: nowrap;
-    min-width: 80px;
-}
-
-.field-value {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #e5e7eb;
-}
-
-@media (max-width: 640px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .field-label {
-        min-width: 90px;
-    }
-}
+.about-row:last-child { border-bottom: none; }
+.about-key { color: var(--text-tertiary); }
+.about-val { color: var(--text-primary); text-align: right; }
+.about-val.accent { color: var(--mint); }
 </style>

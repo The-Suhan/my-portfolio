@@ -1,4 +1,7 @@
 export default defineI18nLocale(() => ({
+  projects: {
+    "title": "Meniň taslamalarym"
+  },
   resume: {
     whyHireMe: {
       title: "Näme üçin men ?",
@@ -91,7 +94,7 @@ export default defineI18nLocale(() => ({
         title: "Fullstack Taslama 'Owazym'",
         desc: "Owazym Spotify ýaly hyzmatlardan ylham alnan full-stack aýdym platformasydyr. Aýdymlary tapmak, diňlemek we pleýlist dolandyrmak üçin arassa we responsive UI hödürleýär.",
         techs: ["Node.js", "Prisma", "Vue.js", "PostreSQL"],
-        liveUrl: "https://owazym-frontend.vercel.app",
+        liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
         images: ["/projects/owazym.jpg"],
       },
@@ -111,13 +114,13 @@ export default defineI18nLocale(() => ({
         title: "Velora Online Cafe",
         desc: "Velora Cafe — müşderi we admin taraplaryny öz içine alýan doly restoran web goşundysydyr. Ulanyjylar iýmit we içgileri kategoriýa boýunça görup bilerler, sargyt edip bilerler, profilini dolandyryp bilerler we OTP arkaly howpsuz parol dikeltme ulgamy bilen hasaba durup ýa-da girip bilerler. Admin paneli menýu we sargytlar üstünde doly gözegçiligi üpjün edýär.",
         techs: ["Laravel", "Nuxt.js", "PostreSQL"],
-        liveUrl: "",
+        liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
         images: ["/projects/velora.png"],
       },
     },
   },
-  
+
   error: {
     notFound: "Sahypa tapylmady",
     unexpected: "Bir zat ters gitdi",
@@ -127,6 +130,8 @@ export default defineI18nLocale(() => ({
   },
 
   home: {
+    "title": "Baş sahypa",
+    "description": "Meniň baş sahypam",
     hero: {
       description:
         "Men sanly tejribeleri döretmekde ökde we dürli programmirleme dillerini ulanmagy başarýaryn.",

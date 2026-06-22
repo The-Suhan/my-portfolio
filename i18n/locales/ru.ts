@@ -1,4 +1,7 @@
 export default defineI18nLocale(() => ({
+  projects: {
+    "title": "Мои проекты"
+  },
   resume: {
     whyHireMe: {
       title: "Почему нанять меня?",
@@ -91,7 +94,7 @@ export default defineI18nLocale(() => ({
         title: "Fullstack проект 'Owazym'",
         desc: "Owazym — это full-stack музыкальная платформа, вдохновлённая Spotify. Она позволяет искать, слушать и управлять музыкой через удобный интерфейс.",
         techs: ["Node.js", "Prisma", "Vue.js", "PostreSQL"],
-        liveUrl: "https://owazym-frontend.vercel.app",
+        liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
         images: ["/projects/owazym.jpg"],
       },
@@ -111,7 +114,7 @@ export default defineI18nLocale(() => ({
         title: "Velora Online Cafe",
         desc: "Velora Cafe — полноценное веб-приложение для ресторана с клиентской и административной частями. Пользователи могут просматривать блюда и напитки по категориям, оформлять заказы, управлять профилем, а также регистрироваться и входить в систему с защищённым восстановлением пароля через OTP. Админ-панель обеспечивает полный контроль над меню и заказами.",
         techs: ["Laravel", "Nuxt.js", "PostreSQL"],
-        liveUrl: "",
+        liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
         images: ["/projects/velora.png"],
       },
@@ -127,6 +130,8 @@ export default defineI18nLocale(() => ({
   },
 
   home: {
+    "title": "Главная",
+    "description": "Моя главная страница",
     hero: {
       description:
         "Я создаю элегантные цифровые интерфейсы и владею различными технологиями программирования.",

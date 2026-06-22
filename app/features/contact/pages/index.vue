@@ -1,76 +1,46 @@
-<template>
-  <main>
-    <section class="contact-section">
-      <div class="contact-left">
-        <div class="content-header">
-          <h2 class="content-title">{{ $t('contact.title') }}</h2>
-        </div>
-
-        <FContactForm />
-      </div>
-
-      <div class="contact-right">
-        <FContactInfo />
-      </div>
-    </section>
-  </main>
-</template>
-
+<!-- pages/contact.vue -->
 <script setup lang="ts">
 const { t } = useI18n()
 
 useHead({
   title: t('contact.title'),
-  script: [
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js',
-      defer: true,
-    },
-  ],
+  script: [{ src: 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js', defer: true }],
 })
 </script>
 
+<template>
+  <section class="view">
+    <div class="contact-layout">
+      <div class="contact-form-box">
+        <p class="pane-eyebrow">$ ./send_message --interactive</p>
+        <h2 class="contact-title">{{ $t('contact.title') }}</h2>
+        <FContactForm />
+      </div>
+
+      <aside class="contact-aside">
+        <FContactInfo />
+      </aside>
+    </div>
+  </section>
+</template>
+
 <style scoped>
-.contact-section {
+.view { animation: fadeUp .5s var(--ease); }
+.contact-layout {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
   align-items: start;
-  padding: 3rem 0;
 }
-
-.contact-left {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background: #1a1a22;
-  border-radius: 12px;
-  padding: 2.5rem;
+.contact-form-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 36px;
 }
-
-.contact-right {
-  padding-top: 0.5rem;
-  min-width: 260px;
-}
+.contact-title { font-size: 1.6rem; font-weight: 800; margin: 0 0 28px; }
 
 @media (max-width: 900px) {
-  .contact-section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .contact-left {
-    padding: 1.75rem;
-  }
-
-  .contact-right {
-    order: -1;
-  }
-}
-
-@media (max-width: 640px) {
-  .contact-left {
-    padding: 1.25rem;
-  }
+  .contact-layout { grid-template-columns: 1fr; }
 }
 </style>
