@@ -11,26 +11,6 @@ export default defineI18nLocale(() => ({
       skills: "Навыки",
       about: "Обо мне",
     },
-    experience: {
-      title: "Мой опыт",
-      items: {
-        junior: {
-          period: "2025",
-          title: "Junior Web Developer",
-          place: "Официальный центр программирования",
-        },
-        frontend: {
-          period: "Март 2026",
-          title: "Стажёр Front-End Developer",
-          place: "Студия веб-дизайна",
-        },
-        fullstack: {
-          period: "Май 2026",
-          title: "Full Stack разработчик",
-          place: "Tech Solutions Inc.",
-        },
-      },
-    },
     education: {
       title: "Моё образование",
       items: {

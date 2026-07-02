@@ -1,7 +1,7 @@
 <!-- pages/resume.vue -->
 <script setup lang="ts">
-const activeTab = ref('experience')
-const tabs = ['experience', 'education', 'skills', 'about']
+const activeTab = ref('education')
+const tabs = ['education', 'skills', 'about']
 const { t } = useI18n()
 
 useHead({
@@ -27,7 +27,7 @@ useHead({
 
       <div class="resume-content">
         <Transition name="fade-up" mode="out-in">
-          <FResumeEducation v-else-if="activeTab === 'education'" key="edu" />
+          <FResumeEducation v-if="activeTab === 'education'" key="edu" />
           <FResumeSkills v-else-if="activeTab === 'skills'" key="skills" />
           <FResumeAboutme v-else-if="activeTab === 'about'" key="about" />
         </Transition>
