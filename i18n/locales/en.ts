@@ -139,7 +139,7 @@ export default defineI18nLocale(() => ({
     "description": "My home page",
     hero: {
       description:
-        "I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.",
+        "As a Freelance Full Stack Developer, I build high-quality websites, e-commerce platforms, mobile applications, and custom software solutions for clients.",
       role: "Web Developer",
       greeting: "Hello I'm",
       roles: {

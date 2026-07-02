@@ -134,7 +134,7 @@ export default defineI18nLocale(() => ({
     "description": "Meniň baş sahypam",
     hero: {
       description:
-        "Men sanly tejribeleri döretmekde ökde we dürli programmirleme dillerini ulanmagy başarýaryn.",
+        "Freelance Full Stack Developer. Döwrebap web saýtlaryny, e-commerce platformalaryny, mobil programmalary we ýörite programma üpjünçilik çözgütlerini müşderileriň islegine görä döredýärin.",
       role: "Programist",
       greeting: "Salam men",
       roles: {
