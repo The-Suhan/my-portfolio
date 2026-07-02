@@ -27,7 +27,6 @@ useHead({
 
       <div class="resume-content">
         <Transition name="fade-up" mode="out-in">
-          <FResumeExperience v-if="activeTab === 'experience'" key="exp" />
           <FResumeEducation v-else-if="activeTab === 'education'" key="edu" />
           <FResumeSkills v-else-if="activeTab === 'skills'" key="skills" />
           <FResumeAboutme v-else-if="activeTab === 'about'" key="about" />

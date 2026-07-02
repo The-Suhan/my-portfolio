@@ -7,7 +7,6 @@ export default defineI18nLocale(() => ({
       title: "Почему нанять меня?",
     },
     tabs: {
-      experience: "Опыт",
       education: "Образование",
       skills: "Навыки",
       about: "Обо мне",

@@ -7,7 +7,6 @@ export default defineI18nLocale(() => ({
       title: "Näme üçin men ?",
     },
     tabs: {
-      experience: "Tejribe",
       education: "Bilim",
       skills: "Tehnoligiyalar",
       about: "Men hakda",
