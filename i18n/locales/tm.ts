@@ -113,13 +113,14 @@ export default defineI18nLocale(() => ({
     "description": "Meniň baş sahypam",
     hero: {
       description:
-        "Freelance Full Stack Developer. Döwrebap web saýtlaryny, e-commerce platformalaryny, mobil programmalary we ýörite programma üpjünçilik çözgütlerini müşderileriň islegine görä döredýärin.",
+        "Frilans Full Stack Developer hökmünde, men ýokary hilli web-saýtlar, elektron söwda platformalary, mobil we Android goşundylar, şeýle-de müşderiler üçin ýörite programma üpjünçilikli çözgütler işläp taýýarlaýaryn.",
       role: "Programist",
       greeting: "Salam men",
       roles: {
         name: "Suhan Begenjov",
         uiux: "UI UX Dizaýner",
         frontend: "Full Stack Web Developer",
+        android: "Android Programist",
       },
     },
     stats: {

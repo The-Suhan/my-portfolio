@@ -118,13 +118,14 @@ export default defineI18nLocale(() => ({
     "description": "My home page",
     hero: {
       description:
-        "As a Freelance Full Stack Developer, I build high-quality websites, e-commerce platforms, mobile applications, and custom software solutions for clients.",
+        "As a freelance Full Stack Developer, I build high-quality websites, e-commerce platforms, mobile and Android apps, and custom software solutions for clients.",
       role: "Web Developer",
       greeting: "Hello I'm",
       roles: {
         name: "Suhan Begenjov",
         uiux: "UI UX Designer",
         frontend: "Full Stack Web Developer",
+        android: "Android Developer",
       },
     },
     stats: {

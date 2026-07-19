@@ -1,45 +1,50 @@
 <!-- components/Home/Terminal.vue -->
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 
 const roles = computed(() => [
-  t('home.hero.roles.name'),
-  t('home.hero.roles.uiux'),
-  t('home.hero.roles.frontend'),
-])
+  t("home.hero.roles.name"),
+  t("home.hero.roles.uiux"),
+  t("home.hero.roles.frontend"),
+  t("home.hero.roles.android"),
+]);
 
-const displayText = ref('')
-let roleIndex = 0
-let charIndex = 0
-let isDeleting = false
-let timeout: ReturnType<typeof setTimeout> | null = null
+const displayText = ref("");
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let timeout: ReturnType<typeof setTimeout> | null = null;
 
 function type() {
-  const current = roles.value[roleIndex]!
+  const current = roles.value[roleIndex]!;
   if (!isDeleting) {
-    displayText.value = current.slice(0, charIndex + 1)
-    charIndex++
+    displayText.value = current.slice(0, charIndex + 1);
+    charIndex++;
     if (charIndex === current.length) {
-      isDeleting = true
-      timeout = setTimeout(type, 1700)
-      return
+      isDeleting = true;
+      timeout = setTimeout(type, 1700);
+      return;
     }
-    timeout = setTimeout(type, 70)
+    timeout = setTimeout(type, 70);
   } else {
-    displayText.value = current.slice(0, charIndex - 1)
-    charIndex--
+    displayText.value = current.slice(0, charIndex - 1);
+    charIndex--;
     if (charIndex === 0) {
-      isDeleting = false
-      roleIndex = (roleIndex + 1) % roles.value.length
-      timeout = setTimeout(type, 350)
-      return
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.value.length;
+      timeout = setTimeout(type, 350);
+      return;
     }
-    timeout = setTimeout(type, 35)
+    timeout = setTimeout(type, 35);
   }
 }
 
-onMounted(() => { timeout = setTimeout(type, 600) })
-onUnmounted(() => { if (timeout) clearTimeout(timeout) })
+onMounted(() => {
+  timeout = setTimeout(type, 600);
+});
+onUnmounted(() => {
+  if (timeout) clearTimeout(timeout);
+});
 </script>
 
 <template>
@@ -57,7 +62,10 @@ onUnmounted(() => { if (timeout) clearTimeout(timeout) })
         <span class="term-cmd"> whoami</span>
       </div>
       <span class="term-out">
-        <span class="accent">suhan_begenjov</span> · web developer · ashgabat, tm
+        <span class="accent">suhan_begenjov</span> ·
+        <span class="nowrap">web developer</span> ·
+        <span class="nowrap">android dev</span> ·
+        <span class="nowrap">uiux designer</span>
       </span>
 
       <div class="term-line">
@@ -65,14 +73,15 @@ onUnmounted(() => { if (timeout) clearTimeout(timeout) })
         <span class="term-cmd"> echo $ROLE</span>
       </div>
       <span class="term-h1">
-        <span class="role-text">{{ displayText }}</span><span class="blinker"></span>
+        <span class="role-text">{{ displayText }}</span
+        ><span class="blinker"></span>
       </span>
 
       <div class="term-line">
         <span class="term-prompt">$</span>
         <span class="term-cmd"> cat about.txt</span>
       </div>
-      <span class="term-out">{{ $t('home.hero.description') }}</span>
+      <span class="term-out">{{ $t("home.hero.description") }}</span>
 
       <div class="term-line">
         <span class="term-prompt">$</span>
@@ -94,19 +103,36 @@ onUnmounted(() => { if (timeout) clearTimeout(timeout) })
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
 }
 .term-bar {
-  display: flex; align-items: center; gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 11px 14px;
   background: var(--bg-elevated);
   border-bottom: 1px solid var(--border-subtle);
 }
-.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.dot-red { background: #ff5f57; }
-.dot-yellow { background: #febc2e; }
-.dot-green { background: #28c840; }
-.term-title { margin-left: 8px; font-size: 11.5px; color: var(--text-tertiary); }
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red {
+  background: #ff5f57;
+}
+.dot-yellow {
+  background: #febc2e;
+}
+.dot-green {
+  background: #28c840;
+}
+.term-title {
+  margin-left: 8px;
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+}
 
 .term-body {
   padding: 26px 24px 30px;
@@ -114,14 +140,33 @@ onUnmounted(() => { if (timeout) clearTimeout(timeout) })
   font-size: 14.5px;
   line-height: 1.85;
 }
-.term-line { white-space: pre-wrap; word-break: break-word; }
-.term-prompt { color: var(--mint); }
-.term-cmd { color: var(--text-primary); }
-.term-out { color: var(--text-secondary); display: block; margin: 2px 0 10px; }
-.term-out .accent { color: var(--mint); }
-.term-out .amber { color: var(--amber); }
-.accent { color: var(--mint); }
-.amber { color: var(--amber); }
+.term-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.term-prompt {
+  color: var(--mint);
+}
+.term-cmd {
+  color: var(--text-primary);
+}
+.term-out {
+  color: var(--text-secondary);
+  display: block;
+  margin: 2px 0 10px;
+}
+.term-out .accent {
+  color: var(--mint);
+}
+.term-out .amber {
+  color: var(--amber);
+}
+.accent {
+  color: var(--mint);
+}
+.amber {
+  color: var(--amber);
+}
 
 .term-h1 {
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -132,10 +177,20 @@ onUnmounted(() => { if (timeout) clearTimeout(timeout) })
   letter-spacing: -0.01em;
 }
 .blinker {
-  display: inline-block; width: 9px; height: 1.1em;
+  display: inline-block;
+  width: 9px;
+  height: 1.1em;
   background: var(--mint);
   vertical-align: -2px;
   animation: blink 1s step-end infinite;
 }
-@keyframes blink { 50% { opacity: 0; } }
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
 </style>
