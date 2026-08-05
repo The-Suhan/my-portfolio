@@ -79,21 +79,9 @@ export default defineI18nLocale(() => ({
           "/projects/owazym.jpg",
         ],
       },
-      HazarOil: {
-        id: "Hazar Oil",
-        number: "02",
-        title: "Hazar Oil",
-        desc: "Hazar Oil is a corporate presentation website built for an oil company, featuring sections such as About Us and Our Partners. It delivers a clean and professional look to represent the brand online, highlight company values, and showcase business relationships with a focus on credibility and visual clarity.",
-        techs: ["Nuxt.js"],
-        liveUrl: "https://hazaroil.uz/",
-        githubUrl: "https://github.com/The-Suhan/Hazar-Oil",
-        images: [
-          "/projects/hazar-oil.png",
-        ],
-      },
       Velora: {
         id: "Velora Cafe",
-        number: "03",
+        number: "02",
         title: "Velora Online Cafe",
         desc: "Velora Cafe is a full-stack restaurant web application with both customer-facing and admin sides. Customers can browse food and drink items by category, place orders, manage their profile, and register or log in with a secure OTP-based forgot password system. The admin panel provides full control over menu management and orders, offering a seamless experience for both staff and guests.",
         techs: ["Laravel", "Nuxt.js", "PostreSQL"],
