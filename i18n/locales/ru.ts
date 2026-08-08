@@ -88,6 +88,18 @@ export default defineI18nLocale(() => ({
         images: ["/projects/velora.png"],
       },
     },
+    macbook: {
+      id: "3D Template",
+      number: "03",
+      title: "Интерактивный 3D-шаблон MacBook",
+      desc: "3D Template — это интерактивный шаблон на Vue 3 + TypeScript с полностью анимированной 3D-сценой MacBook, созданной с использованием Three.js и GSAP. Модель ноутбука загружается из .glb-файла и отображается на весь экран позади содержимого страницы. Благодаря доступному pivot-точке крышки экран ноутбука можно открывать и закрывать с помощью прокрутки или взаимодействия пользователя. Шаблон разработан как универсальная основа для дальнейшей кастомизации и включает полноэкранный адаптивный canvas, собственные настройки камеры и освещения, а также чистую структуру проекта.",
+      techs: ["Vue.js", "Three.js", "GSAP", "TypeScript", "Vite"],
+      liveUrl: "https://3d-template-beta.vercel.app/",
+      githubUrl: "https://github.com/The-Suhan/3d-macbook-template-",
+      images: [
+        "/projects/macbook.jpg",
+      ],
+    },
   },
 
   error: {

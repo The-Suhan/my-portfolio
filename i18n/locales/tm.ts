@@ -87,6 +87,18 @@ export default defineI18nLocale(() => ({
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
         images: ["/projects/velora.png"],
       },
+      macbook: {
+        id: "3D Template",
+        number: "03",
+        title: "Interaktiw 3D MacBook şablony",
+        desc: "3D Template — Vue 3 + TypeScript esasynda döredilen interaktiw şablon bolup, Three.js we GSAP arkaly doly animasiýaly 3D MacBook sahnasyny öz içine alýar. Noutbuk modeli .glb faýlyndan ýüklenýär we sahypadaky mazmunyň aňyrsynda doly ekran görnüşinde görkezilýär. Gapak üçin elýeterli pivot nokady arkaly ekrany scroll ýa-da ulanyjynyň özara täsirleşmesi arkaly açyp ýa-da ýapyp bolýar. Şablon gaýtadan ulanmaga we özleşdirmäge niýetlenendir. Onda doly ekranly we ölçegi üýtgedilip bilinýän canvas, ýörite kamera we ýagtylandyryş sazlamalary, şeýle hem arassa we tertipli taslama gurluşy bar.",
+        techs: ["Vue.js", "Three.js", "GSAP", "TypeScript", "Vite"],
+        liveUrl: "https://3d-template-beta.vercel.app/",
+        githubUrl: "https://github.com/The-Suhan/3d-macbook-template-",
+        images: [
+          "/projects/macbook.jpg",
+        ],
+      },
     },
   },
 
