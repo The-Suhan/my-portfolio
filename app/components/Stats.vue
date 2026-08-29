@@ -1,4 +1,4 @@
-<!-- components/Home/Stats.vue -->
+<!-- components/Stats.vue -->
 <script setup lang="ts">
 interface StatItem {
   key: string
@@ -9,9 +9,9 @@ interface StatItem {
 
 const stats = reactive<StatItem[]>([
   { key: 'experience', target: 1, current: 0, suffix: '+' },
-  { key: 'projects', target: 3, current: 0 },
+  { key: 'projects', target: 4, current: 0 },
   { key: 'technologies', target: 14, current: 0 },
-  { key: 'commits', target: 200, current: 0, suffix: '+' },
+  { key: 'commits', target: 500, current: 0, suffix: '+' },
 ])
 
 const statsEl = ref<HTMLElement | null>(null)
@@ -42,45 +42,47 @@ onMounted(() => {
     entries.forEach(e => { if (e.isIntersecting) animateCounters() })
   }, { threshold: 0.3 })
   if (statsEl.value) observer.observe(statsEl.value)
+  onUnmounted(() => observer.disconnect())
 })
 
 onUnmounted(() => { if (animationFrame) cancelAnimationFrame(animationFrame) })
 </script>
 
 <template>
-  <div class="stats-row" ref="statsEl">
-    <div v-for="stat in stats" :key="stat.key" class="stat-card">
-      <div class="stat-num-row">
-        <span class="stat-num">{{ stat.current }}</span>
-        <span v-if="stat.suffix" class="stat-suffix">{{ stat.suffix }}</span>
-      </div>
-      <span class="stat-label">// {{ $t(`home.stats.${stat.key}`) }}</span>
+  <div ref="statsEl" class="stats">
+    <div v-for="stat in stats" :key="stat.key" class="stats__cell">
+      <span class="stats__num">
+        {{ stat.current }}<i v-if="stat.suffix">{{ stat.suffix }}</i>
+      </span>
+      <span class="stats__label">{{ $t(`home.stats.${stat.key}`) }}</span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.stats-row {
+.stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  margin-top: 64px;
-  background: var(--border-subtle);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 112px;
 }
-.stat-card {
-  background: var(--bg-panel);
-  padding: 22px 18px;
+.stats__cell {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 18px;
 }
-.stat-num-row { display: flex; align-items: baseline; }
-.stat-num { font-size: 2.2rem; font-weight: 800; color: var(--text-primary); }
-.stat-suffix { font-size: 2.2rem; font-weight: 800; color: var(--mint); }
-.stat-label { font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.02em; }
+.stats__num {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.stats__num i { font-style: normal; color: var(--on-ink-30); }
+.stats__label { font-size: 13px; color: var(--on-ink-50); }
 
-@media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 72px; }
+}
 </style>

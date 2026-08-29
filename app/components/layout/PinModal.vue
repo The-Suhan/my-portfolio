@@ -1,4 +1,4 @@
-<!-- components/Layout/PinModal.vue -->
+<!-- components/layout/PinModal.vue -->
 <script setup lang="ts">
 const PIN_CODE = '0906'
 const { isOpen, pendingUrl, close } = usePinModal()
@@ -16,7 +16,7 @@ watch(isOpen, (v) => {
 })
 
 function onInput(idx: number) {
-  pinValues.value[idx] = pinValues.value[idx].replace(/[^0-9]/g, '')
+  pinValues.value[idx] = (pinValues.value[idx] ?? '').replace(/[^0-9]/g, '')
   if (pinValues.value[idx] && idx < 3) inputs.value[idx + 1]?.focus()
 }
 
@@ -39,32 +39,24 @@ function confirm() {
 
 <template>
   <Teleport to="body">
-    <Transition name="modal">
-      <div v-if="isOpen" class="modal-overlay" @click.self="close">
-        <div class="modal-box">
-          <p class="pane-eyebrow">$ sudo access --repo</p>
-          <h3 class="modal-title">Private Access</h3>
-          <p class="modal-desc">This project is private. Enter the 4-digit code to continue.</p>
+    <Transition name="fade">
+      <div v-if="isOpen" class="overlay" @click.self="close">
+        <div class="box">
+          <h3 class="box__title">{{ $t('work.popup.title') }}</h3>
+          <p class="box__desc">{{ $t('work.popup.desc') }}</p>
 
-          <div class="pin-inputs">
+          <div class="pins">
             <input
-              v-for="(_, idx) in pinValues"
-              :key="idx"
-              ref="inputs"
-              v-model="pinValues[idx]"
-              maxlength="1"
-              inputmode="numeric"
-              class="pin-box"
-              @input="onInput(idx)"
-              @keydown="onKeydown($event, idx)"
-            />
+v-for="(_, idx) in pinValues" :key="idx" ref="inputs" v-model="pinValues[idx]"
+              maxlength="1" inputmode="numeric" class="pins__box" @input="onInput(idx)"
+              @keydown="onKeydown($event, idx)"/>
           </div>
 
-          <p class="pin-error" :class="{ show: pinError }">Wrong code. Try again.</p>
+          <p class="box__error" :class="{ show: pinError }">{{ $t('work.popup.error') }}</p>
 
-          <div class="modal-actions">
-            <button class="btn-ghost" @click="close">cancel</button>
-            <button class="btn-primary" @click="confirm">Confirm</button>
+          <div class="box__actions">
+            <button class="btn btn--ghost" @click="close">Cancel</button>
+            <button class="btn btn--solid" @click="confirm">{{ $t('work.popup.confirm') }}</button>
           </div>
         </div>
       </div>
@@ -73,42 +65,58 @@ function confirm() {
 </template>
 
 <style scoped>
-.modal-overlay {
-  position: fixed; inset: 0; z-index: 500;
-  background: rgba(5,7,10,0.75);
-  backdrop-filter: blur(6px);
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
   display: flex;
-  align-items: center; justify-content: center;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
+  background: rgba(6, 6, 6, .8);
+  backdrop-filter: blur(8px);
 }
-.modal-box {
-  width: 100%; max-width: 380px;
-  background: var(--bg-panel);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: 30px;
-  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.7);
+.box {
+  width: 100%;
+  max-width: 400px;
+  padding: 36px;
+  background: var(--ink);
+  border: 1px solid var(--rule-ink);
+  border-radius: 14px;
+  color: #fff;
 }
-.modal-title { font-size: 1.2rem; margin: 0 0 10px; }
-.modal-desc { font-size: 12.5px; color: var(--text-secondary); margin: 0 0 22px; line-height: 1.6; }
-.pin-inputs { display: flex; gap: 10px; margin-bottom: 12px; }
-.pin-box {
-  width: 50px; height: 56px;
+.box__title { font-size: 26px; font-weight: 500; letter-spacing: -0.03em; }
+.box__desc { margin: 12px 0 28px; font-size: 15px; color: var(--on-ink-60); }
+
+.pins { display: flex; gap: 10px; }
+.pins__box {
+  width: 56px;
+  height: 62px;
+  background: transparent;
+  border: 1px solid var(--rule-ink);
+  border-radius: 10px;
   text-align: center;
-  font-size: 1.4rem;
-  font-family: var(--font-mono);
-  background: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
   outline: none;
   transition: border-color .2s;
 }
-.pin-box:focus { border-color: var(--mint-dim); }
-.pin-error { font-size: 11.5px; color: var(--red-soft); height: 16px; margin: 0 0 14px; opacity: 0; transition: opacity .2s; }
-.pin-error.show { opacity: 1; }
-.modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.pins__box:focus { border-color: #fff; }
 
-.modal-enter-active, .modal-leave-active { transition: opacity .25s; }
-.modal-enter-from, .modal-leave-to { opacity: 0; }
+.box__error {
+  height: 18px;
+  margin: 14px 0 20px;
+  font-size: 13px;
+  color: #ff8080;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.box__error.show { opacity: 1; }
+
+.box__actions { display: flex; justify-content: flex-end; gap: 10px; }
+
+.fade-enter-active, .fade-leave-active { transition: opacity .25s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
 </style>

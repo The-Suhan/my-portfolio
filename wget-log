@@ -1,0 +1,12 @@
+--2026-08-18 13:53:38--  https://dl.winehq.org/wine-builds/winehq.key
+CA sertifikası '/etc/ssl/certs/ca-certificates.crt' yüklendi
+dl.winehq.org (dl.winehq.org) çözümleniyor... 151.101.66.217, 151.101.130.217, 151.101.194.217, ...
+dl.winehq.org (dl.winehq.org)[151.101.66.217]:443 bağlanılıyor... bağlantı kuruldu.
+HTTP isteği gönderildi, yanıt bekleniyor... 200 OK
+Uzunluk: 3212 (3.1K) [application/pgp-keys]
+Kayıt yeri: ‘STDOUT’
+
+-                                                      0%[                                                                                                                       ]       0  --.-KB/s               -                                                    100%[======================================================================================================================>]   3.14K  --.-KB/s    içinde 0.004s
+
+2026-08-18 13:53:39 (894 KB/s) - stdout [3212/3212] içine yazıldı
+

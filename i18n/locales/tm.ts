@@ -1,59 +1,48 @@
 export default defineI18nLocale(() => ({
+  seo: {
+    siteName: "Suhan Begenjow",
+    titleTemplate: "%s — Suhan Begenjow",
+    jobTitle: "Full Stack web döredijisi",
+    home: {
+      title: "Full Stack web döredijisi",
+      description:
+        "Suhan Begenjow — Aşgabatdan (Türkmenistan) freelance Full Stack web döredijisi. Vue, Nuxt, Node.js we Laravel bilen çalt web sahypalary, onlaýn dükanlar, Android goşundylary we programma üpjünçiligini taýýarlaýaryn.",
+    },
+    contact: {
+      title: "Habarlaşmak",
+      description:
+        "Suhan Begenjow bilen habarlaşyň — freelance Full Stack web döredijisi. Web sahypalary, web goşundylary, onlaýn dükanlar we mobil taslamalar üçin açyk.",
+    },
+    error: {
+      title: "Sahypa tapylmady",
+      description: "Gözleýän sahypaňyz ýok ýa-da başga ýere geçirilen.",
+    },
+    keywords:
+      "Suhan Begenjow, full stack dörediji, web dörediji Türkmenistan, Nuxt, Vue, freelance dörediji Aşgabat, Laravel, Node.js, Android",
+    imageAlt: "Suhan Begenjow — Full Stack web döredijisiniň portfolio saýty",
+  },
   projects: {
     "title": "Meniň taslamalarym"
   },
-  resume: {
-    whyHireMe: {
-      title: "Näme üçin men ?",
+  about: {
+    title: "Men hakda",
+    fields: {
+      name: "Ady",
+      phone: "Telefon",
+      experience: "Tejribe",
+      nationality: "Milleti",
+      email: "Email",
+      freelance: "Freelance",
+      languages: "Diller",
     },
-    tabs: {
-      education: "Bilim",
-      skills: "Tehnoligiyalar",
-      about: "Men hakda",
-    },
-    education: {
-      title: "Meniň bilimim",
-      items: {
-        programming: {
-          period: "2025",
-          title: "Programmirleme Kursy",
-          place: "Gujurly Programmirleme Kurslar Merkezi",
-        },
-        certified: {
-          period: "2025",
-          title: "Sertifikatly Web Developer",
-          place: "Şäherde",
-        },
-        bootcamp: {
-          period: "2026",
-          title: "Full Stack Web Development Bootcamp",
-          place: "Online Okuw Platformasy",
-        },
-      },
-    },
-    skills: {
-      title: "Tehnologiyalarym",
-    },
-    about: {
-      title: "Men hakda",
-      fields: {
-        name: "Ady",
-        phone: "Telefon",
-        experience: "Tejribe",
-        nationality: "Milleti",
-        email: "Email",
-        freelance: "Freelance",
-        languages: "Diller",
-      },
-      values: {
-        name: "Suhan Begenjov",
-        phone: "+993 63 846663",
-        experience: "1+ ýyl",
-        nationality: "Türkmen",
-        email: "suxanoff07",
-        freelance: "Elýeterli",
-        languages: "Inlis, Rus, Türkmen, Türk",
-      },
+    values: {
+      name: "Suhan Begenjov",
+      phone: "+993 63 846663",
+      experience: "1+ ýyl",
+      nationality: "Türkmen",
+      email: "suxanoff07",
+      freelance: "Elýeterli",
+      languages: "Inlis, Rus, Türkmen, Türk",
     },
   },
 
@@ -75,7 +64,7 @@ export default defineI18nLocale(() => ({
         techs: ["Node.js", "Prisma", "Vue.js", "PostreSQL"],
         liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
-        images: ["/projects/owazym.jpg"],
+        images: ["/projects/owazym.webp"],
       },
       Velora: {
         id: "Velora Cafe",
@@ -85,7 +74,7 @@ export default defineI18nLocale(() => ({
         techs: ["Laravel", "Nuxt.js", "PostreSQL"],
         liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
-        images: ["/projects/velora.png"],
+        images: ["/projects/velora.webp"],
       },
       macbook: {
         id: "3D Template",
@@ -96,7 +85,19 @@ export default defineI18nLocale(() => ({
         liveUrl: "https://3d-template-beta.vercel.app/",
         githubUrl: "https://github.com/The-Suhan/3d-macbook-template-",
         images: [
-          "/projects/macbook.jpg",
+          "/projects/macbook.webp",
+        ],
+      },
+      oguz: {
+        id: "Oguz Trading Group",
+        number: "04",
+        title: "Oguz Trading Group",
+        desc: "Oguz Trading Group — FxPro-nyň resmi hyzmatdaşynyň web sahypasy: forex, altyn we indeks bazarlarynda gündelik seljerme, göni söwda paýlaşygy we töwekgelçilik dolandyryş okuwy. Dört dilde (türk, iňlis, rus we türkmen) doly prerender edilen köpdilli sahypa; canonical, hreflang, Open Graph we JSON-LD bellikleri her dil üçin gurnama wagtynda döredilýär, stiller el bilen ýazyldy we şrift ýüklemesi ilkinji görkezilişi bökdemeýär.",
+        techs: ["Vue.js", "Vite", "JavaScript", "SEO"],
+        liveUrl: "https://oguz-trade.vercel.app/tk/",
+        githubUrl: "https://github.com/The-Suhan/Oguz-Trade",
+        images: [
+          "/projects/Oguz-trade.webp",
         ],
       },
     },
@@ -144,7 +145,6 @@ export default defineI18nLocale(() => ({
     nav: {
       home: "Baş sahypa",
       services: "Hyzmatlar",
-      resume: "Rezume",
       work: "Işler",
       contact: "Habarlaşmak",
       language: "Dil",
@@ -167,6 +167,7 @@ export default defineI18nLocale(() => ({
         web: "Web ösüşi",
         design: "UI/UX dizaýny",
         fullstack: "Full Stack",
+        android: "Android goşundysy",
         other: "Beýlekiler",
       },
       message: "Habaryňyzy ýazyň.",

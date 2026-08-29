@@ -1,59 +1,48 @@
 export default defineI18nLocale(() => ({
+  seo: {
+    siteName: "Сухан Бегенджов",
+    titleTemplate: "%s — Сухан Бегенджов",
+    jobTitle: "Full Stack веб-разработчик",
+    home: {
+      title: "Full Stack веб-разработчик",
+      description:
+        "Сухан Бегенджов — фриланс Full Stack веб-разработчик из Ашхабада, Туркменистан. Разрабатываю быстрые сайты, интернет-магазины, Android-приложения и программные решения на Vue, Nuxt, Node.js и Laravel.",
+    },
+    contact: {
+      title: "Контакты",
+      description:
+        "Свяжитесь с Суханом Бегенджовым — фриланс Full Stack веб-разработчиком. Открыт для проектов: сайты, веб-приложения, интернет-магазины и мобильные приложения.",
+    },
+    error: {
+      title: "Страница не найдена",
+      description: "Страница, которую вы ищете, не существует или была перемещена.",
+    },
+    keywords:
+      "Сухан Бегенджов, full stack разработчик, веб-разработчик Туркменистан, Nuxt, Vue, фриланс разработчик Ашхабад, Laravel, Node.js, Android",
+    imageAlt: "Сухан Бегенджов — портфолио Full Stack веб-разработчика",
+  },
   projects: {
     "title": "Мои проекты"
   },
-  resume: {
-    whyHireMe: {
-      title: "Почему нанять меня?",
+  about: {
+    title: "Обо мне",
+    fields: {
+      name: "Имя",
+      phone: "Телефон",
+      experience: "Опыт",
+      nationality: "Национальность",
+      email: "Email",
+      freelance: "Фриланс",
+      languages: "Языки",
     },
-    tabs: {
-      education: "Образование",
-      skills: "Навыки",
-      about: "Обо мне",
-    },
-    education: {
-      title: "Моё образование",
-      items: {
-        programming: {
-          period: "2025",
-          title: "Курс программирования",
-          place: "Центр программирования Gujurly",
-        },
-        certified: {
-          period: "2025",
-          title: "Сертифицированный веб-разработчик",
-          place: "В городе",
-        },
-        bootcamp: {
-          period: "2026",
-          title: "Full Stack Web Development Bootcamp",
-          place: "Онлайн платформа обучения",
-        },
-      },
-    },
-    skills: {
-      title: "Мои навыки",
-    },
-    about: {
-      title: "Обо мне",
-      fields: {
-        name: "Имя",
-        phone: "Телефон",
-        experience: "Опыт",
-        nationality: "Национальность",
-        email: "Email",
-        freelance: "Фриланс",
-        languages: "Языки",
-      },
-      values: {
-        name: "Suhan Begenjov",
-        phone: "+993 63 846663",
-        experience: "1+ год",
-        nationality: "Туркмен",
-        email: "suxanoff07",
-        freelance: "Доступен",
-        languages: "Английский, Русский, Туркменский, Турецкий",
-      },
+    values: {
+      name: "Suhan Begenjov",
+      phone: "+993 63 846663",
+      experience: "1+ год",
+      nationality: "Туркмен",
+      email: "suxanoff07",
+      freelance: "Доступен",
+      languages: "Английский, Русский, Туркменский, Турецкий",
     },
   },
 
@@ -75,7 +64,7 @@ export default defineI18nLocale(() => ({
         techs: ["Node.js", "Prisma", "Vue.js", "PostreSQL"],
         liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
-        images: ["/projects/owazym.jpg"],
+        images: ["/projects/owazym.webp"],
       },
       Velora: {
         id: "Velora Cafe",
@@ -85,7 +74,7 @@ export default defineI18nLocale(() => ({
         techs: ["Laravel", "Nuxt.js", "PostreSQL"],
         liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
-        images: ["/projects/velora.png"],
+        images: ["/projects/velora.webp"],
       },
       macbook: {
         id: "3D Template",
@@ -96,7 +85,19 @@ export default defineI18nLocale(() => ({
         liveUrl: "https://3d-template-beta.vercel.app/",
         githubUrl: "https://github.com/The-Suhan/3d-macbook-template-",
         images: [
-          "/projects/macbook.jpg",
+          "/projects/macbook.webp",
+        ],
+      },
+      oguz: {
+        id: "Oguz Trading Group",
+        number: "04",
+        title: "Oguz Trading Group",
+        desc: "Oguz Trading Group — официальный сайт партнёра FxPro: ежедневная аналитика рынков форекс, золота и индексов, публикация сделок в реальном времени и обучение риск-менеджменту. Полностью пререндеренный многоязычный сайт на четырёх языках (турецкий, английский, русский и туркменский): canonical, hreflang, Open Graph и JSON-LD генерируются на этапе сборки для каждой локали, стили написаны вручную, а загрузка шрифтов не блокирует первую отрисовку.",
+        techs: ["Vue.js", "Vite", "JavaScript", "SEO"],
+        liveUrl: "https://oguz-trade.vercel.app/tk/",
+        githubUrl: "https://github.com/The-Suhan/Oguz-Trade",
+        images: [
+          "/projects/Oguz-trade.webp",
         ],
       },
     },
@@ -144,7 +145,6 @@ export default defineI18nLocale(() => ({
     nav: {
       home: "Главная",
       services: "Сервисы",
-      resume: "Резюме",
       work: "Работы",
       contact: "Контакты",
       language: "Язык",
@@ -167,6 +167,7 @@ export default defineI18nLocale(() => ({
         web: "Веб-разработка",
         design: "UI/UX дизайн",
         fullstack: "Full Stack",
+        android: "Android-приложение",
         other: "Другое",
       },
       message: "Введите ваше сообщение.",

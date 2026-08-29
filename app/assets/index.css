@@ -1,130 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  box-sizing: border-box;
+/* ---------------------------------------------------------------------------
+   Design tokens.
+   Monochrome, editorial: an almost-black ground the pinned hero lives on,
+   opaque #111 and white sections that slide over it, and nothing else.
+--------------------------------------------------------------------------- */
+:root {
+  --void: #090909;
+  --ink: #111111;
+  --paper: #ffffff;
+  --footer: #08060d;
+
+  --on-ink: #ffffff;
+  --on-ink-60: rgba(255, 255, 255, 0.6);
+  --on-ink-50: rgba(255, 255, 255, 0.5);
+  --on-ink-30: rgba(255, 255, 255, 0.3);
+  --rule-ink: rgba(255, 255, 255, 0.15);
+
+  --on-paper: #111111;
+  --on-paper-60: rgba(0, 0, 0, 0.6);
+  --on-paper-50: rgba(0, 0, 0, 0.5);
+  --rule-paper: rgba(0, 0, 0, 0.15);
+
+  --font-sans: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
+
+  --pad-x: 32px;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  color: #f1f1f1;
-  background: #0f0f0f;
+@media (max-width: 640px) {
+  :root { --pad-x: 20px; }
 }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  min-height: calc(100vh - 200px);
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  background: #000;
+  color: var(--on-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  /* `clip`, not `hidden`: `hidden` turns html/body into scroll containers,
+   * which silently kills `position: sticky` for every descendant — the
+   * project deck's stacking cards among them. `clip` still trims the
+   * horizontal overflow the skewed section blades throw off. */
+  overflow-x: clip;
 }
 
+p { line-height: 1.35em; letter-spacing: -0.5px; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; color: inherit; background: none; border: none; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
 
-.tab-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+::selection { background: #fff; color: #111; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }
 
-.content-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.content-title {
-  font-family: 'Space Mono', monospace;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-}
-
-.content-desc {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-.scroll-wrapper {
-  display: flex;
-  gap: 0.5rem;
-  align-items: stretch;
-}
-
-.scrollbar-track {
-  width: 4px;
-  background: #2a2a33;
-  border-radius: 999px;
+/* ---------------------------------------------------------------------------
+   Sections. Every opaque section sits at z-index 2 so it slides over the
+   pinned hero backdrop (z-index 1) instead of scrolling with it. They must
+   stay `position: relative` and must NOT clip overflow — the diagonal blade
+   protrudes above their flat top edge.
+--------------------------------------------------------------------------- */
+.section {
   position: relative;
-  cursor: pointer;
-  flex-shrink: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--pad-x);
 }
+.section > * { position: relative; }
 
-.scrollbar-thumb {
-  position: absolute;
-  left: 0;
-  width: 4px;
-  background: #00ff8c;
-  border-radius: 999px;
-  cursor: grab;
-  transition: width 0.15s ease, left 0.15s ease;
-}
+.section--ink { background: var(--ink); color: var(--on-ink); }
+.section--paper { background: var(--paper); color: var(--on-paper); }
 
-.scrollbar-thumb:hover,
-.scrollbar-thumb:active {
-  width: 6px;
-  left: -1px;
-  cursor: grabbing;
-}
-
-.resume-card {
-  background: #2a2a33;
-  border-radius: 8px;
-  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+/* Label rail: "(01)  Section name" over a hairline, like the reference. */
+.rail {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  transition: background 0.2s ease, border-left-color 0.2s ease;
-  border-left: 3px solid transparent;
-  min-height: 150px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.section--paper .rail { border-top-color: var(--rule-paper); }
+.rail__num { color: var(--on-ink-50); }
+.section--paper .rail__num { color: var(--on-paper-50); }
+
+/* Display type: the oversized, tightly tracked headline used everywhere. */
+.display {
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.display--sm {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
-.resume-card:hover {
-  background: #32323e;
-  border-left-color: #00ff8c;
+.lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--on-ink-60);
+  font-weight: 400;
 }
+.section--paper .lede { color: var(--on-paper-60); }
 
-.card-period {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: #00ff8c;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+/* ---------------------------------------------------------------------------
+   Controls
+--------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 14px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .3s var(--ease-expo), color .3s var(--ease-expo),
+              border-color .3s var(--ease-expo), transform .3s var(--ease-expo);
 }
+.btn--solid { background: #fff; color: #111; }
+.btn--solid:hover { transform: translateY(-2px); }
+.btn--ghost { border: 1px solid var(--rule-ink); color: var(--on-ink); }
+.btn--ghost:hover { background: #fff; color: #111; }
+.section--paper .btn--solid { background: #111; color: #fff; }
+.section--paper .btn--ghost { border-color: var(--rule-paper); color: #111; }
+.section--paper .btn--ghost:hover { background: #111; color: #fff; }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
 
-.card-title {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #e5e7eb;
-  line-height: 1.3;
+/* Pill used for tech tags, skills, languages. */
+.pill {
+  display: inline-block;
+  border: 1px solid var(--rule-ink);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: background .25s var(--ease-expo), color .25s var(--ease-expo);
 }
+.pill:hover { background: #fff; color: #111; }
+.section--paper .pill { border-color: var(--rule-paper); color: var(--on-paper-60); }
+.section--paper .pill:hover { background: #111; color: #fff; }
 
-.card-place {
-  list-style: disc;
-  padding-left: 1rem;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
-}
-
-.card-place li {
-  color: #6b7280;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }

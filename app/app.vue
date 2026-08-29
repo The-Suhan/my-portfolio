@@ -1,22 +1,10 @@
 <script setup lang="ts">
-
-const router = useRouter()
-
+// Site-wide structured data. Page-level meta lives in each page via `useSeo`.
+useJsonLd(useSiteSchema())
 </script>
 
 <template>
   <NuxtLayout>
-    <main>
-      <NuxtPage />
-    </main>
+    <NuxtPage />
   </NuxtLayout>
 </template>
-
-<style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-</style>

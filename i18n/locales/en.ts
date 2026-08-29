@@ -1,59 +1,48 @@
 export default defineI18nLocale(() => ({
+  seo: {
+    siteName: "Suhan Begenjov",
+    titleTemplate: "%s — Suhan Begenjov",
+    jobTitle: "Full Stack Web Developer",
+    home: {
+      title: "Full Stack Web Developer",
+      description:
+        "Suhan Begenjov — freelance Full Stack Web Developer from Ashgabat, Turkmenistan. I build fast websites, e-commerce platforms, Android apps and custom software with Vue, Nuxt, Node.js and Laravel.",
+    },
+    contact: {
+      title: "Contact",
+      description:
+        "Get in touch with Suhan Begenjov — freelance Full Stack Web Developer. Available for websites, web apps, e-commerce and mobile projects.",
+    },
+    error: {
+      title: "Page not found",
+      description: "The page you are looking for does not exist or has been moved.",
+    },
+    keywords:
+      "Suhan Begenjov, full stack developer, web developer Turkmenistan, Nuxt developer, Vue developer, freelance developer Ashgabat, Laravel, Node.js, Android developer",
+    imageAlt: "Suhan Begenjov — Full Stack Web Developer portfolio",
+  },
   projects: {
     "title": "My Projects"
   },
-  resume: {
-    whyHireMe: {
-      title: "Why hire me?",
+  about: {
+    title: "About me",
+    fields: {
+      name: "Name",
+      phone: "Phone",
+      experience: "Experience",
+      nationality: "Nationality",
+      email: "Email",
+      freelance: "Freelance",
+      languages: "Languages",
     },
-    tabs: {
-      education: "Education",
-      skills: "Skills",
-      about: "About me",
-    },
-    education: {
-      title: "My education",
-      items: {
-        programming: {
-          period: "2025",
-          title: "Programming Course",
-          place: "Gujurly Programming Courses Center",
-        },
-        certified: {
-          period: "2025",
-          title: "Certified Web Developer",
-          place: "In the City",
-        },
-        bootcamp: {
-          period: "2026",
-          title: "Full Stack Web Development Bootcamp",
-          place: "Online Course Platform",
-        },
-      },
-    },
-    skills: {
-      title: "My skills",
-    },
-    about: {
-      title: "About me",
-      fields: {
-        name: "Name",
-        phone: "Phone",
-        experience: "Experience",
-        nationality: "Nationality",
-        email: "Email",
-        freelance: "Freelance",
-        languages: "Languages",
-      },
-      values: {
-        name: "Suhan Begenjov",
-        phone: "+993 63 846663",
-        experience: "1+ Years",
-        nationality: "Turkmen",
-        email: "suxanoff07",
-        freelance: "Available",
-        languages: "English, Russia, Turkmen, Turkish",
-      },
+    values: {
+      name: "Suhan Begenjov",
+      phone: "+993 63 846663",
+      experience: "1+ Years",
+      nationality: "Turkmen",
+      email: "suxanoff07",
+      freelance: "Available",
+      languages: "English, Russia, Turkmen, Turkish",
     },
   },
 
@@ -76,7 +65,7 @@ export default defineI18nLocale(() => ({
         liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/owazym-full-project",
         images: [
-          "/projects/owazym.jpg",
+          "/projects/owazym.webp",
         ],
       },
       Velora: {
@@ -88,7 +77,7 @@ export default defineI18nLocale(() => ({
         liveUrl: null,
         githubUrl: "https://github.com/The-Suhan/velora-online-cafe-full-project",
         images: [
-          "/projects/velora.png",
+          "/projects/velora.webp",
         ],
       },
       macbook: {
@@ -100,7 +89,19 @@ export default defineI18nLocale(() => ({
         liveUrl: "https://3d-template-beta.vercel.app/",
         githubUrl: "https://github.com/The-Suhan/3d-macbook-template-",
         images: [
-          "/projects/macbook.jpg",
+          "/projects/macbook.webp",
+        ],
+      },
+      oguz: {
+        id: "Oguz Trading Group",
+        number: "04",
+        title: "Oguz Trading Group",
+        desc: "Oguz Trading Group is the official web presence of an FxPro partner, covering daily forex, gold and index market analysis, live trade sharing and risk-management training. Built as a fully prerendered multilingual site in four languages (Turkish, English, Russian and Turkmen), with per-locale canonical, hreflang, Open Graph and JSON-LD tags generated at build time, hand-written scoped CSS, and a font loading strategy that keeps the first paint unblocked.",
+        techs: ["Vue.js", "Vite", "JavaScript", "SEO"],
+        liveUrl: "https://oguz-trade.vercel.app/tk/",
+        githubUrl: "https://github.com/The-Suhan/Oguz-Trade",
+        images: [
+          "/projects/Oguz-trade.webp",
         ],
       },
     },
@@ -147,7 +148,6 @@ export default defineI18nLocale(() => ({
     nav: {
       home: "Home",
       services: "Services",
-      resume: "Resume",
       work: "Work",
       contact: "Contact",
       language: "Language",
@@ -170,6 +170,7 @@ export default defineI18nLocale(() => ({
         web: "Web Development",
         design: "UI/UX Design",
         fullstack: "Full Stack",
+        android: "Android Application",
         other: "Other",
       },
       message: "Type your message here.",

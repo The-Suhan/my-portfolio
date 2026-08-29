@@ -1,47 +1,26 @@
-<!-- components/F/Contact/Info.vue -->
+<!-- features/contact/components/info.vue -->
+<script setup lang="ts">
+const items = ['phone', 'email', 'address'] as const
+</script>
+
 <template>
-  <div class="contact-info">
-    <div class="info-card">
-      <span class="info-icon">☏</span>
-      <div>
-        <p class="info-label">{{ $t('contact.info.phone.label') }}</p>
-        <p class="info-val">{{ $t('contact.info.phone.value') }}</p>
-      </div>
+  <dl class="info">
+    <div v-for="key in items" :key="key" class="info__row">
+      <dt>{{ $t(`contact.info.${key}.label`) }}</dt>
+      <dd>{{ $t(`contact.info.${key}.value`) }}</dd>
     </div>
-    <div class="info-card">
-      <span class="info-icon">@</span>
-      <div>
-        <p class="info-label">{{ $t('contact.info.email.label') }}</p>
-        <p class="info-val">{{ $t('contact.info.email.value') }}</p>
-      </div>
-    </div>
-    <div class="info-card">
-      <span class="info-icon">⚲</span>
-      <div>
-        <p class="info-label">{{ $t('contact.info.address.label') }}</p>
-        <p class="info-val">{{ $t('contact.info.address.value') }}</p>
-      </div>
-    </div>
-  </div>
+  </dl>
 </template>
 
 <style scoped>
-.contact-info { display: flex; flex-direction: column; gap: 14px; }
-.info-card {
-  display: flex; align-items: center; gap: 14px;
-  background: var(--bg-panel);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 18px;
+.info__row { border-top: 1px solid var(--rule-paper); padding: 20px 0; }
+.info__row:last-child { border-bottom: 1px solid var(--rule-paper); }
+.info__row dt {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--on-paper-50);
+  margin-bottom: 8px;
 }
-.info-icon {
-  width: 38px; height: 38px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--bg-elevated);
-  border-radius: var(--radius-sm);
-  color: var(--mint);
-  font-size: 15px;
-}
-.info-label { font-size: 10.5px; color: var(--text-tertiary); margin: 0 0 3px; text-transform: uppercase; letter-spacing: 0.04em; }
-.info-val { font-size: 13px; margin: 0; }
+.info__row dd { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
 </style>
